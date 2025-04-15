@@ -1,9 +1,109 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+
+//new
+//jalankan
+main() => runApp(const AplikasiSaya());
+
+class AplikasiSaya extends StatelessWidget {
+  const AplikasiSaya({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            //scaffold itu kerangka widget
+            appBar: AppBar(
+              title: const Text("Selamat Datang!"),
+              backgroundColor: Colors.blue[100],
+            ),
+            body: Container(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 20.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25)),
+                          labelText: "Username",
+                          hintText: "Masukan username Anda!"),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 40.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25)),
+                          labelText: "Password",
+                          hintText: "Masukan password Anda!"),
+                      obscureText: true, //jadi ****** seperti password
+                    ),
+                  ),
+                  // TextButton(
+                  //   style: const ButtonStyle(),
+                  //   onPressed: () {},
+                  //   child: const Text("Login"),
+                  // ),
+                  // ElevatedButton(
+                  //     onPressed: () {},
+                  //     style: ElevatedButton.styleFrom(
+                  //         minimumSize: const Size(150, 30),
+                  //         backgroundColor:
+                  //             WidgetStateProperty.resolveWith((states) {
+                  //           if (states.contains(WidgetState.hovered)) {
+                  //             return Colors.blueAccent;
+                  //           }
+                  //           return Colors.blue;
+                  //         }),
+                  //         padding: const EdgeInsets.all(15.0),
+                  //         textStyle: const TextStyle(
+                  //             fontSize: 15, fontWeight: FontWeight.bold)),
+                  //     child: const Text("Login")),
+                  TextButton(
+                    style: ButtonStyle(
+                      minimumSize:
+                          WidgetStateProperty.all<Size>(const Size(150, 50)),
+                      backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+                        (Set<WidgetState> states) {
+                          if (states.contains(WidgetState.pressed)) {
+                            return Colors.orange; // Saat ditekan
+                          }
+                          if (states.contains(WidgetState.hovered)) {
+                            return Colors.red; // Saat hover
+                          }
+                          return Colors.blue[300]; // Normal
+                        },
+                      ),
+                      foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+                        (Set<WidgetState> states) {
+                          if (states.contains(WidgetState.hovered)) {
+                            return Colors.brown; // Hover: teks coklat
+                          }
+                          return Colors
+                              .white; // Default dan pressed: teks putih
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      print("ditekan");
+                    },
+                    child: const Text(
+                      'Login',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  )
+                ],
+              ),
+            )));
+  }
+}
 
 // void main() {
 //   runApp(const MyApp());
 // }
-
+//bawaan
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
 
