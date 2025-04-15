@@ -31,13 +31,25 @@ class AplikasiSaya extends StatelessWidget {
                   ),
                   Container(
                     margin: const EdgeInsets.only(bottom: 40.0),
-                    child: TextField(
+                    //input text biasa
+                    // child: TextField(
+                    //   decoration: InputDecoration(
+                    //       border: OutlineInputBorder(
+                    //           borderRadius: BorderRadius.circular(25)),
+                    //       labelText: "Password",
+                    //       hintText: "Masukan password Anda!"),
+                    //   obscureText: true, //jadi ****** seperti password
+                    // ),
+                    // input text buat form
+                    child: TextFormField(
+                      initialValue: "ini nilai awalnya",
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(25)),
                           labelText: "Password",
-                          hintText: "Masukan password Anda!"),
-                      obscureText: true, //jadi ****** seperti password
+                          hintText: "Masukan password anda!"),
+                      obscuringCharacter: "#",
+                      obscureText: true,
                     ),
                   ),
                   // TextButton(
@@ -60,40 +72,78 @@ class AplikasiSaya extends StatelessWidget {
                   //         textStyle: const TextStyle(
                   //             fontSize: 15, fontWeight: FontWeight.bold)),
                   //     child: const Text("Login")),
-                  TextButton(
-                    style: ButtonStyle(
-                      minimumSize:
-                          WidgetStateProperty.all<Size>(const Size(150, 50)),
-                      backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-                        (Set<WidgetState> states) {
-                          if (states.contains(WidgetState.pressed)) {
-                            return Colors.orange; // Saat ditekan
-                          }
-                          if (states.contains(WidgetState.hovered)) {
-                            return Colors.red; // Saat hover
-                          }
-                          return Colors.blue[300]; // Normal
-                        },
+                  Builder(
+                    builder: (context) => TextButton(
+                      style: ButtonStyle(
+                        minimumSize:
+                            WidgetStateProperty.all<Size>(const Size(150, 50)),
+                        backgroundColor:
+                            WidgetStateProperty.resolveWith<Color?>(
+                          (Set<WidgetState> states) {
+                            if (states.contains(WidgetState.pressed)) {
+                              return Colors.orange; // Saat ditekan
+                            }
+                            if (states.contains(WidgetState.hovered)) {
+                              return Colors.red; // Saat hover
+                            }
+                            return Colors.blue[300]; // Normal
+                          },
+                        ),
+                        foregroundColor:
+                            WidgetStateProperty.resolveWith<Color?>(
+                          (Set<WidgetState> states) {
+                            if (states.contains(WidgetState.hovered)) {
+                              return Colors.brown; // Hover: teks coklat
+                            }
+                            return Colors
+                                .white; // Default dan pressed: teks putih
+                          },
+                        ),
                       ),
-                      foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-                        (Set<WidgetState> states) {
-                          if (states.contains(WidgetState.hovered)) {
-                            return Colors.brown; // Hover: teks coklat
-                          }
-                          return Colors
-                              .white; // Default dan pressed: teks putih
-                        },
+                      onPressed: () {
+                        // print("ditekan");
+                        const snackbarCoba =
+                            SnackBar(content: Text("Login berhasil!"));
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(snackbarCoba);
+                      },
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    onPressed: () {
-                      print("ditekan");
-                    },
-                    child: const Text(
-                      'Login',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
+                  ),
+                  // The GestureDetector wraps the button.
+                  Builder(
+                      builder: (context) => InkWell(
+                            borderRadius: BorderRadius.circular(25),
+                            splashColor: Colors.red[200], //efek saat ditekan
+                            highlightColor: Colors
+                                .orange, // When the child is tapped, show a snackbar.
+                            onTap: () {
+                              const snackBar = SnackBar(content: Text('diTap'));
+
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                            },
+                            // The custom button
+                            child: Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              child: const Text('Btn'),
+                            ),
+                          )),
+                  Image.asset(
+                    "images/lake.jpg",
+                    width: 100,
+                    height: 50,
+                    fit: BoxFit.cover,
                   )
+                  // Image.network("https://picsum.photos/250?image=9")
                 ],
               ),
             )));
