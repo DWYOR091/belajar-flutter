@@ -20,8 +20,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false, //menghilangkan label debug
       title: 'Belajar Flutter',
-      theme: ThemeData(),
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 76, 207, 80),
+              brightness: Brightness.dark),
+          useMaterial3: true),
       home: const TestPage(title: "Halaman Pertama!"),
     );
     // throw UnimplementedError();
@@ -36,10 +41,34 @@ class TestPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(
+          title,
+          style: const TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blue.shade400,
       ),
-      body: const Center(
-        child: Text("Belajar Flutter"),
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.all(10.0),
+          margin: EdgeInsets.all(10.0),
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+              color: Colors.blue, borderRadius: BorderRadius.circular(25.0)),
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            margin: EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(20.0),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25.0),
+                color: Colors.amber[200]),
+            child: Text(
+              "Hello bro!",
+              style: TextStyle(color: Colors.red[400]),
+            ),
+          ),
+        ),
       ),
     );
   }
