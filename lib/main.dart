@@ -1,11 +1,13 @@
 // import 'package:belajar_flutter/pages/column.dart';
-import 'package:belajar_flutter/pages/row.dart';
+import 'package:belajar_flutter/pages/images.dart';
+// import 'package:belajar_flutter/pages/row.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
   // runApp(const MyApp());
   // runApp(const CobaColumn());
-  runApp(const RowKu());
+  // runApp(const RowKu());
+  runApp(const CobaImage());
 }
 
 //types
