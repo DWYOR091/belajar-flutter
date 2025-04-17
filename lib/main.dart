@@ -1,7 +1,9 @@
+import 'package:belajar_flutter/pages/column.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
-  runApp(const MyApp());
+  // runApp(const MyApp());
+  runApp(const CobaColumn());
 }
 
 //types
