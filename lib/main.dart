@@ -1,7 +1,8 @@
 // import 'package:belajar_flutter/pages/column.dart';
 // import 'package:belajar_flutter/pages/images.dart';
 // import 'package:belajar_flutter/pages/row.dart';
-import 'package:belajar_flutter/pages/stack.dart';
+// import 'package:belajar_flutter/pages/stack.dart';
+import 'package:belajar_flutter/pages/listTile.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -9,7 +10,8 @@ void main(List<String> args) {
   // runApp(const CobaColumn());
   // runApp(const RowKu());
   // runApp(const CobaImage());
-  runApp(const CobaStack());
+  // runApp(const CobaStack());
+  runApp(const CobaListTile());
 }
 
 //types
