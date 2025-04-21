@@ -12,7 +12,7 @@ class CobaScaffold extends StatelessWidget {
         title: "nama aplikasinya",
         theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
-                seedColor: Colors.red, brightness: Brightness.dark)),
+                seedColor: Colors.red.shade400, brightness: Brightness.light)),
         home: Scaffold(
           appBar: AppBar(
             centerTitle: true,
@@ -20,6 +20,26 @@ class CobaScaffold extends StatelessWidget {
             title: const Text("Belajar Scaffold Widget"),
             leading: const Icon(Icons.login),
             actions: [Text("asdawdawkaw")],
+          ),
+          floatingActionButton: Column(
+            // mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisSize:
+                MainAxisSize.min, //mengambil ruang yg hanya dibutuhkan pake min
+            children: [
+              FloatingActionButton(
+                  child: const Icon(Icons.add),
+                  onPressed: () {
+                    print("tes floating btn!");
+                  }),
+              SizedBox(
+                height: 10,
+              ),
+              FloatingActionButton(
+                  child: const Icon(Icons.access_alarm_rounded),
+                  onPressed: () {
+                    print("tes floating btn 2!");
+                  }),
+            ],
           ),
           bottomNavigationBar: NavigationBar(
             destinations: const [
