@@ -4,7 +4,8 @@
 // import 'package:belajar_flutter/pages/stack.dart';
 // import 'package:belajar_flutter/pages/listTile.dart';
 // import 'package:belajar_flutter/pages/scaffold.dart';
-import 'package:belajar_flutter/pages/drawer.dart';
+// import 'package:belajar_flutter/pages/drawer.dart';
+import 'package:belajar_flutter/pages/statefull.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -15,7 +16,8 @@ void main(List<String> args) {
   // runApp(const CobaStack());
   // runApp(const CobaListTile());
   // runApp(const CobaScaffold());
-  runApp(const CobaDrawer());
+  // runApp(const CobaDrawer());
+  runApp(const CobaStateFull());
 }
 
 //types
