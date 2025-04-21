@@ -21,6 +21,16 @@ class CobaScaffold extends StatelessWidget {
             leading: const Icon(Icons.login),
             actions: [Text("asdawdawkaw")],
           ),
+          bottomNavigationBar: NavigationBar(
+            destinations: const [
+              NavigationDestination(icon: Icon(Icons.home), label: "home"),
+              NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
+            ],
+            onDestinationSelected: (int value) {
+              print(value);
+            },
+            selectedIndex: 1,
+          ),
           body: Container(),
         ));
   }
