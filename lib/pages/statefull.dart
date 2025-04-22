@@ -18,7 +18,9 @@ class _CobaStateFullState extends State<CobaStateFull> {
             backgroundColor: Colors.blue,
           ),
           body: Center(
-            child: currentValue == 0 ? Text("Home") : Text("Phone"),
+            child: currentValue == 0
+                ? Column(children: [Text("Home")])
+                : Text("Phone"),
           ),
           bottomNavigationBar: NavigationBar(
             destinations: [
