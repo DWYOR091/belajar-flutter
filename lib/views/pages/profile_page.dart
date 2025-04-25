@@ -72,12 +72,12 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(
               //jika listview ingin scroll sendiri pake expanded atau flexible karena jika dibungkus paka SingleeChildScrollview akan jadi bunging kasih ukuran untuk childnya ;v
-              height: 200,
+              height: 180,
               child: ListView.builder(
-                shrinkWrap:
-                    true, //jika sudah dibungkan pake ini atau pakai sizebox agar ukurannya ttp
-                physics:
-                    NeverScrollableScrollPhysics(), //jika sudah dibungkan pake ini
+                // shrinkWrap:
+                //     true, //jika sudah dibungkan pake ini atau pakai sizebox agar ukurannya ttp
+                // physics:
+                //     NeverScrollableScrollPhysics(), //jika sudah dibungkan pake ini
                 itemCount: 3,
                 itemBuilder: (BuildContext context, int index) {
                   return CheckboxListTile(
@@ -119,8 +119,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     print(value);
                   });
                 }),
-            Image.asset("assets/images/lake.jpg"),
-            Image.asset("assets/images/lake.jpg"),
+            GestureDetector(
+              //fungsi gestureDetection memberikan agar gambar bisa di tap atau apapun
+              child: Image.asset("assets/images/lake.jpg"),
+              onTap: () {
+                print("gambar di tap");
+              },
+            ),
           ],
         ),
       ),
