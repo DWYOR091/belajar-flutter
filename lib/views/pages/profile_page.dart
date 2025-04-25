@@ -15,6 +15,7 @@ class _ProfilePageState extends State<ProfilePage> {
   //banyak checkbox
   List<bool> isCheckedList = [false, false, false];
   List<bool> isToogleList = [true, false, false];
+  String? menuItem;
 
   @override
   void initState() {
@@ -208,15 +209,41 @@ class _ProfilePageState extends State<ProfilePage> {
                 PopupMenuItem(value: "delete", child: Text("Delete")),
               ],
             ),
-            DropdownButton<String>(
-              value: "One",
-              items: ['One', 'Two'].map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              onChanged: (newValue) {},
+            DropdownButton<String?>(
+              value: menuItem,
+              // items: [
+              //   DropdownMenuItem(child: Text("One"), value: "one"),
+              //   DropdownMenuItem(child: Text("Two"), value: "two"),
+              // ], //cara 1
+              // items: [null, "one", "two"].map((value) {
+              //   return DropdownMenuItem(
+              //     child: Text(value ?? "pilih satu!"),
+              //     value: value,
+              //   );
+              // }).toList(), //cara2
+              //cara 3 agar value dan textnya beda
+              hint: Text("pilih salah satu!"),
+              items: [
+                DropdownMenuItem<String?>(
+                  value: null,
+                  child: Text("Tidak dipilih"),
+                ),
+                ...[
+                  {"label": "One", "value": "one"},
+                  {"label": "Two", "value": "two"},
+                ].map((e) {
+                  return DropdownMenuItem<String?>(
+                    value: e["value"],
+                    child: Text(e["label"]!),
+                  );
+                }).toList(),
+              ],
+              onChanged: (value) {
+                setState(() {
+                  menuItem = value;
+                  print(value);
+                });
+              },
             ),
             FloatingActionButton(
               onPressed: () {},
