@@ -1,5 +1,6 @@
 import 'package:belajar_flutter/data/notifiers.dart';
 import 'package:belajar_flutter/views/pages/home_page.dart';
+import 'package:belajar_flutter/views/pages/login_page.dart';
 import 'package:belajar_flutter/views/pages/profile_page.dart';
 import 'package:belajar_flutter/views/pages/setting_page.dart';
 import 'package:belajar_flutter/views/widgets/navbar_widget.dart';
@@ -21,7 +22,16 @@ class WidgetTree extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.blue,
-        leading: Icon(Icons.login),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(
+                builder: (context) {
+                  selectedPageNotifier.value = 0;
+                  return LoginPage();
+                },
+              ));
+            },
+            icon: const Icon(Icons.logout)),
         actions: [
           SizedBox(
               child: Switch(

@@ -1,3 +1,4 @@
+import 'package:belajar_flutter/views/widgets/hero_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -5,8 +6,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("Home Page"),
-    );
+    return Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [HeroWidget()],
+        ));
   }
 }
