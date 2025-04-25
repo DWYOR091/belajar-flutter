@@ -1,6 +1,7 @@
 import 'package:belajar_flutter/data/notifiers.dart';
 import 'package:belajar_flutter/views/pages/home_page.dart';
 import 'package:belajar_flutter/views/pages/profile_page.dart';
+import 'package:belajar_flutter/views/pages/setting_page.dart';
 import 'package:belajar_flutter/views/widgets/navbar_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class WidgetTree extends StatelessWidget {
       appBar: AppBar(
         title: Center(
           child: Text(
-            "Belajar ValueNotifier",
+            "Belajar Flutter",
           ),
         ),
         backgroundColor: Colors.blue,
@@ -41,7 +42,16 @@ class WidgetTree extends StatelessWidget {
               isDarkModeNotifier.value = value;
               print(value);
             },
-          ))
+          )),
+          IconButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return SettingPage();
+                  },
+                ));
+              },
+              icon: const Icon(Icons.settings))
         ],
       ),
       body: ValueListenableBuilder(

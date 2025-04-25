@@ -1,5 +1,6 @@
 import 'package:belajar_flutter/data/notifiers.dart';
-import 'package:belajar_flutter/views/widget_tree.dart';
+import 'package:belajar_flutter/views/pages/login_page.dart';
+// import 'package:belajar_flutter/views/widget_tree.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -24,7 +25,7 @@ class _AplikasikuState extends State<Aplikasiku> {
           debugShowCheckedModeBanner: false,
           theme:
               ThemeData(brightness: value ? Brightness.dark : Brightness.light),
-          home: WidgetTree(),
+          home: LoginPage(),
         );
       },
     );
