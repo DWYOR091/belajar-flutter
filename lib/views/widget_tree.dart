@@ -31,9 +31,9 @@ class WidgetTree extends StatelessWidget {
             thumbIcon: WidgetStateProperty.resolveWith(
               (states) {
                 if (states.contains(WidgetState.selected)) {
-                  return Icon(Icons.dark_mode);
-                } else {
                   return Icon(Icons.light_mode);
+                } else {
+                  return Icon(Icons.dark_mode);
                 }
               },
             ),

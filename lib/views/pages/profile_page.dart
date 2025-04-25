@@ -9,6 +9,10 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController textController1 = TextEditingController();
+  bool? isChecked = false;
+  bool isswitch = false;
+  //banyak checkbox
+  List<bool> isCheckedList = [false, false, false];
   @override
   void initState() {
     textController1.addListener(
@@ -44,7 +48,59 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           Center(
             child: Text(textController1.text),
-          )
+          ),
+          Checkbox(
+            tristate: true, //artinya bisa 3 null,false,true
+            value: isChecked,
+            onChanged: (bool? value) {
+              setState(() {
+                isChecked = value;
+              });
+            },
+          ),
+          CheckboxListTile(
+            tristate: true,
+            value: isChecked,
+            title: Text("ini checkboxlisttile"),
+            onChanged: (value) {
+              setState(() {
+                isChecked = value;
+              });
+            },
+          ),
+          Flexible(
+            child: ListView.builder(
+              itemCount: 3,
+              itemBuilder: (BuildContext context, int index) {
+                return CheckboxListTile(
+                  value: isCheckedList[index],
+                  title: Text("date $index"),
+                  onChanged: (value) {
+                    setState(() {
+                      isCheckedList[index] = value!;
+                    });
+                  },
+                );
+              },
+            ),
+          ),
+          Switch.adaptive(
+            value: isswitch,
+            onChanged: (value) {
+              setState(() {
+                isswitch = value;
+              });
+            },
+          ),
+          SwitchListTile.adaptive(
+            title: Text("ini switch"),
+            value: isswitch,
+            onChanged: (value) {
+              setState(() {
+                isswitch = value;
+              });
+            },
+          ) //fungsi .adaptive akan menyesuaikan tampilan android dan ios
         ],
       ),
     );

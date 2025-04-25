@@ -23,7 +23,7 @@ class _AplikasikuState extends State<Aplikasiku> {
           title: "Belajar Notifier",
           debugShowCheckedModeBanner: false,
           theme:
-              ThemeData(brightness: value ? Brightness.light : Brightness.dark),
+              ThemeData(brightness: value ? Brightness.dark : Brightness.light),
           home: WidgetTree(),
         );
       },
