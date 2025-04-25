@@ -53,6 +53,15 @@ class _SettingPageState extends State<SettingPage> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
+              ElevatedButton(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text("Snackbar!"),
+                      duration: Duration(seconds: 1),
+                      elevation: 1.0,
+                    ));
+                  },
+                  child: Text("Open Snackbar")),
               TextField(
                 controller: textController1,
                 decoration: InputDecoration(
