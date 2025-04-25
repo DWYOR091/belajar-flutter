@@ -32,87 +32,97 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        children: [
-          TextField(
-            controller: textController1,
-            decoration: InputDecoration(
-                label: Text("Label"),
-                hintText: "Masukan text!",
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25))),
-            onEditingComplete: () {
-              setState(() {});
-            },
-          ),
-          Center(
-            child: Text(textController1.text),
-          ),
-          Checkbox(
-            tristate: true, //artinya bisa 3 null,false,true
-            value: isChecked,
-            onChanged: (bool? value) {
-              setState(() {
-                isChecked = value;
-              });
-            },
-          ),
-          CheckboxListTile(
-            tristate: true,
-            value: isChecked,
-            title: Text("ini checkboxlisttile"),
-            onChanged: (value) {
-              setState(() {
-                isChecked = value;
-              });
-            },
-          ),
-          Flexible(
-            child: ListView.builder(
-              itemCount: 3,
-              itemBuilder: (BuildContext context, int index) {
-                return CheckboxListTile(
-                  value: isCheckedList[index],
-                  title: Text("date $index"),
-                  onChanged: (value) {
-                    setState(() {
-                      isCheckedList[index] = value!;
-                    });
-                  },
-                );
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: textController1,
+              decoration: InputDecoration(
+                  label: const Text("Label"),
+                  hintText: "Masukan text!",
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25))),
+              onEditingComplete: () {
+                setState(() {});
               },
             ),
-          ),
-          Switch.adaptive(
-            value: isswitch,
-            onChanged: (value) {
-              setState(() {
-                isswitch = value;
-              });
-            },
-          ),
-          SwitchListTile.adaptive(
-            title: Text("ini switch"),
-            value: isswitch,
-            onChanged: (value) {
-              setState(() {
-                isswitch = value;
-              });
-            },
-          ), //fungsi .adaptive akan menyesuaikan tampilan android dan ios
-          Slider.adaptive(
-              max: 5.0,
-              divisions: 5,
-              value: sliderValue,
-              onChanged: (double value) {
+            Center(
+              child: Text(textController1.text),
+            ),
+            Checkbox(
+              tristate: true, //artinya bisa 3 null,false,true
+              value: isChecked,
+              onChanged: (bool? value) {
                 setState(() {
-                  sliderValue = value;
-                  print(value);
+                  isChecked = value;
                 });
-              })
-        ],
+              },
+            ),
+            CheckboxListTile(
+              tristate: true,
+              value: isChecked,
+              title: const Text("ini checkboxlisttile"),
+              onChanged: (value) {
+                setState(() {
+                  isChecked = value;
+                });
+              },
+            ),
+            SizedBox(
+              //jika listview ingin scroll sendiri pake expanded atau flexible karena jika dibungkus paka SingleeChildScrollview akan jadi bunging kasih ukuran untuk childnya ;v
+              height: 200,
+              child: ListView.builder(
+                shrinkWrap:
+                    true, //jika sudah dibungkan pake ini atau pakai sizebox agar ukurannya ttp
+                physics:
+                    NeverScrollableScrollPhysics(), //jika sudah dibungkan pake ini
+                itemCount: 3,
+                itemBuilder: (BuildContext context, int index) {
+                  return CheckboxListTile(
+                    value: isCheckedList[index],
+                    title: Text("date $index"),
+                    onChanged: (value) {
+                      setState(() {
+                        isCheckedList[index] = value!;
+                      });
+                    },
+                  );
+                },
+              ),
+            ),
+            Switch.adaptive(
+              value: isswitch,
+              onChanged: (value) {
+                setState(() {
+                  isswitch = value;
+                });
+              },
+            ),
+            SwitchListTile.adaptive(
+              title: const Text("ini switch"),
+              value: isswitch,
+              onChanged: (value) {
+                setState(() {
+                  isswitch = value;
+                });
+              },
+            ), //fungsi .adaptive akan menyesuaikan tampilan android dan ios
+            Slider.adaptive(
+                max: 5.0,
+                divisions: 5,
+                value: sliderValue,
+                onChanged: (double value) {
+                  setState(() {
+                    sliderValue = value;
+                    print(value);
+                  });
+                }),
+            Image.asset("assets/images/lake.jpg"),
+            Image.asset("assets/images/lake.jpg"),
+          ],
+        ),
       ),
     );
   }
