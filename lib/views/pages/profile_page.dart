@@ -126,6 +126,24 @@ class _ProfilePageState extends State<ProfilePage> {
                 print("gambar di tap");
               },
             ),
+            SizedBox(
+              height: 10.0,
+            ),
+            InkWell(
+              //inkwell ada splashColor sedangkan  GestureDetector tidak ada!
+              splashColor: Colors.teal,
+              onTap: () {
+                print("di tap!");
+              },
+              child: Container(
+                color: Colors.black12,
+                height: 180,
+                width: double.infinity,
+                child: Center(
+                  child: Text("ini inkwell"),
+                ),
+              ),
+            )
           ],
         ),
       ),
