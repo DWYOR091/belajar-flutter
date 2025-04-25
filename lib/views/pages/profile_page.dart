@@ -146,6 +146,13 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 50.0,
+              child: Text(
+                "Buttons",
+                style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+              ),
+            ),
             ToggleButtons(
               isSelected: isToogleList,
               children: [
@@ -176,6 +183,75 @@ class _ProfilePageState extends State<ProfilePage> {
                   }
                 });
               },
+            ),
+            ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.amber),
+                child: const Text("Elevanted Button")), //adashadownya
+            TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                    textStyle: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: Colors.blue)),
+                child:
+                    const Text("Text Button")), //seperti a href untuk hyperlink
+            IconButton(
+              icon: Icon(Icons.icecream_rounded),
+              onPressed: () {
+                print("icon btn.");
+              },
+            ),
+            PopupMenuButton<String>(
+              itemBuilder: (context) => [
+                PopupMenuItem(value: "edit", child: Text("Edit")),
+                PopupMenuItem(value: "delete", child: Text("Delete")),
+              ],
+            ),
+            DropdownButton<String>(
+              value: "One",
+              items: ['One', 'Two'].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (newValue) {},
+            ),
+            FloatingActionButton(
+              onPressed: () {},
+              child: Icon(Icons.add),
+            ),
+            OutlinedButton(
+              onPressed: () {},
+              child: Text("Outline btn"),
+            ),
+            //custom button
+            GestureDetector(
+              onTap: () {
+                print("btn di tap!");
+              },
+              child: Container(
+                height: 40.0,
+                width: 140.0,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25.0),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black87,
+                          blurRadius: 6,
+                          offset: Offset(2, 2))
+                    ]),
+                child: Center(
+                  child: Text(
+                    "custom Button",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
             )
           ],
         ),
