@@ -155,6 +155,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
               onPressed: (int index) {
                 setState(() {
+                  // isToogleList[index] = !isToogleList[index];
                   // if (index == 0) {
                   //   isToogleList = [true, false, false];
                   // } else if (index == 1) {
