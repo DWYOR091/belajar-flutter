@@ -14,6 +14,8 @@ class _ProfilePageState extends State<ProfilePage> {
   double sliderValue = 0.0;
   //banyak checkbox
   List<bool> isCheckedList = [false, false, false];
+  List<bool> isToogleList = [true, false, false];
+
   @override
   void initState() {
     textController1.addListener(
@@ -143,6 +145,36 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Text("ini inkwell"),
                 ),
               ),
+            ),
+            ToggleButtons(
+              isSelected: isToogleList,
+              children: [
+                Icon(Icons.ac_unit),
+                Icon(Icons.call),
+                Icon(Icons.cake),
+              ],
+              onPressed: (int index) {
+                setState(() {
+                  // if (index == 0) {
+                  //   isToogleList = [true, false, false];
+                  // } else if (index == 1) {
+                  //   isToogleList = [false, true, false];
+                  // } else {
+                  //   isToogleList = [false, false, true];
+                  // }
+                  switch (index) {
+                    case 0:
+                      isToogleList = [true, false, false];
+                    case 1:
+                      isToogleList = [false, true, false];
+                    case 2:
+                      isToogleList = [false, false, true];
+                      break;
+                    default:
+                      print("Tidak ada!");
+                  }
+                });
+              },
             )
           ],
         ),
