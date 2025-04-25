@@ -11,6 +11,7 @@ class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController textController1 = TextEditingController();
   bool? isChecked = false;
   bool isswitch = false;
+  double sliderValue = 0.0;
   //banyak checkbox
   List<bool> isCheckedList = [false, false, false];
   @override
@@ -100,7 +101,17 @@ class _ProfilePageState extends State<ProfilePage> {
                 isswitch = value;
               });
             },
-          ) //fungsi .adaptive akan menyesuaikan tampilan android dan ios
+          ), //fungsi .adaptive akan menyesuaikan tampilan android dan ios
+          Slider.adaptive(
+              max: 5.0,
+              divisions: 5,
+              value: sliderValue,
+              onChanged: (double value) {
+                setState(() {
+                  sliderValue = value;
+                  print(value);
+                });
+              })
         ],
       ),
     );
