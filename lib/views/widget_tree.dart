@@ -47,7 +47,9 @@ class WidgetTree extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return SettingPage();
+                    return SettingPage(
+                      title: "Settings",
+                    );
                   },
                 ));
               },

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SettingPage extends StatefulWidget {
-  const SettingPage({super.key});
+  const SettingPage({super.key, required this.title});
 
+  final String title;
   @override
   State<SettingPage> createState() => _SettingPageState();
 }
@@ -37,7 +38,7 @@ class _SettingPageState extends State<SettingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Setting"),
+        title: Text(widget.title),
         backgroundColor: Colors.black26,
         leading: BackButton(
           onPressed: () {
