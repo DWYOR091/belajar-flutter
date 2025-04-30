@@ -24,12 +24,66 @@ class WidgetTree extends StatelessWidget {
         backgroundColor: Colors.blue,
         leading: IconButton(
             onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(
-                builder: (context) {
-                  selectedPageNotifier.value = 0;
-                  return LoginPage();
-                },
-              ));
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: const Row(
+                        children: [
+                          Icon(Icons.warning),
+                          SizedBox(width: 10),
+                          Text("Logout")
+                        ],
+                      ),
+                      content: const Text("Apakah anda yakin ingin logout?"),
+                      actions: [
+                        TextButton(
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  WidgetStateProperty.resolveWith<Color>(
+                                      (states) {
+                                if (states.contains(WidgetState.pressed)) {
+                                  return Colors.orange; // Saat ditekan
+                                }
+                                if (states.contains(WidgetState.hovered)) {
+                                  return Colors.blue.shade700; // Saat hover
+                                }
+                                return Colors.blue[300]!; // Normal
+                              }),
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text(
+                              "Tidak",
+                              style: TextStyle(color: Colors.white),
+                            )),
+                        TextButton(
+                            style: ButtonStyle(backgroundColor:
+                                WidgetStateProperty.resolveWith((states) {
+                              if (states.contains(WidgetState.hovered)) {
+                                return Colors.green.shade700;
+                              }
+                              return Colors.green[300]!;
+                            })),
+                            onPressed: () {
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(
+                                builder: (context) {
+                                  return const LoginPage();
+                                },
+                              ));
+                            },
+                            child: const Text(
+                              "Ya",
+                              style: TextStyle(color: Colors.white),
+                            ))
+                      ],
+                      shape: const RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0))),
+                    );
+                  });
             },
             icon: const Icon(Icons.logout)),
         actions: [

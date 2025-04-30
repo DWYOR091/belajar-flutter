@@ -53,6 +53,16 @@ class _SettingPageState extends State<SettingPage> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
+              SizedBox(
+                height: 50.0,
+                child: ListView(
+                  children: [
+                    ListTile(title: Text('Bagian 1')),
+                    Divider(),
+                    ListTile(title: Text('Bagian 2')),
+                  ],
+                ),
+              ),
               ElevatedButton(
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -62,6 +72,18 @@ class _SettingPageState extends State<SettingPage> {
                     ));
                   },
                   child: Text("Open Snackbar")),
+              Divider(
+                thickness: 50.0, //ketebalan
+                color: Colors.pink,
+                height: 20.0,
+                // endIndent: 10.0, //batas akhir
+              ),
+              Container(
+                height: 30.0,
+                child: VerticalDivider(
+                  thickness: 10.0,
+                ),
+              ),
               TextField(
                 controller: textController1,
                 decoration: InputDecoration(
