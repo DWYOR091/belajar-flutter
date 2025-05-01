@@ -1,3 +1,4 @@
+import 'package:belajar_flutter/data/constants.dart';
 import 'package:belajar_flutter/views/widgets/hero_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -33,8 +34,14 @@ class HomePage extends StatelessWidget {
                 margin: EdgeInsets.all(10.0),
                 child: ListTile(
                   leading: Icon(Icons.album, size: 50),
-                  title: Text('Judul Card'),
-                  subtitle: Text('Subtitle atau deskripsi singkat'),
+                  title: Text(
+                    'Judul Card',
+                    style: kTextStyle.titleTealText,
+                  ),
+                  subtitle: Text(
+                    'Subtitle atau deskripsi singkat',
+                    style: kTextStyle.titleDescriptionText,
+                  ),
                   trailing: Icon(Icons.more_vert),
                   onTap: () {
                     print('Card ditekan');
